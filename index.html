@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sessions Retreat Front Desk Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Limelight&family=Poppins:wght@400;500;600;700&display=swap">
+<style>:root{--bg:#FDF8F2;--bg2:#F2E8DA;--card:#FFFFFF;--ink:#212934;--head-ink:#181F38;--muted:#5D6270;--line:#E5DCCD;
+--accent:#DEB789;--accent-ink:#8A6330;--on-accent:#181F38;--say-ink:#181F38;--warn:#9B3B22;--warn-soft:#F8E4DA;--go:#2F7A45;--go-soft:#DDF1E2;
+--body:"Poppins",-apple-system,"Segoe UI",sans-serif;--h2font:400 32px/1.15 "Limelight",Georgia,serif;--tname:600 21px/1.2 "Poppins",sans-serif;
+--sayfont:400 22px/1.4 "Covered By Your Grace","Poppins",cursive;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:840px;margin:0 auto;padding:0 16px 80px}
+nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-in{max-width:840px;margin:0 auto;padding:0 16px;display:flex;gap:2px;overflow-x:auto}
+nav a{flex:0 0 auto;padding:12px 10px;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap}
+nav a.on,nav a:hover{color:var(--accent-ink);border-bottom-color:var(--accent)}
+section{padding-top:48px;scroll-margin-top:52px}
+h2{font:var(--h2font);margin:0 0 6px;color:var(--head-ink);text-wrap:balance}
+.sub{margin:0 0 22px;color:var(--muted);font-size:16px}
+h3{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin:28px 0 10px}
+p{margin:0 0 12px;max-width:66ch}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:18px 0 8px}
+.tier{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--accent);padding:18px 18px 16px;display:flex;flex-direction:column;gap:4px}
+.t-when{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.t-name{font:var(--tname);color:var(--head-ink)}
+.t-price{font:700 40px/1.1 var(--body);color:var(--accent-ink);font-variant-numeric:tabular-nums}
+.t-note{font-size:15px}.t-sku{font-size:12.5px;color:var(--muted);margin-top:auto;padding-top:10px}
+.note{border-left:5px solid var(--accent);background:var(--card);padding:13px 17px;margin:18px 0}
+.note.warn{border-left-color:var(--warn);background:var(--warn-soft)}
+.note p{margin:0;max-width:none}.note p+p{margin-top:8px}
+.lbl{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:5px}
+.note.warn .lbl{color:var(--warn)}
+.say{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--accent);padding:14px 18px;margin:14px 0;font:var(--sayfont);color:var(--say-ink)}
+.say p{margin:0;max-width:none}
+.flow{display:flex;flex-direction:column;margin:16px 0}
+.q{background:var(--card);border:1px solid var(--line);padding:14px 16px}
+.q-t{font-weight:700;margin:0 0 8px;font-size:16px}
+.branch{display:flex;gap:10px;align-items:flex-start;padding:6px 0;font-size:15px}
+.branch+.branch{border-top:1px dashed var(--line)}
+.ans{flex:0 0 auto;font-size:11px;font-weight:700;letter-spacing:.08em;padding:3px 9px;border-radius:99px;margin-top:2px}
+.ans.y{background:var(--go-soft);color:var(--go)}.ans.n{background:var(--warn-soft);color:var(--warn)}
+.arrow{align-self:center;color:var(--muted);padding:4px 0}
+ul.rules{padding-left:20px;margin:6px 0 14px}ul.rules li{margin-bottom:6px}
+.calc{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--accent);padding:16px;margin:16px 0}
+.calc label{font-weight:700;font-size:14px}
+.calc-row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-top:6px}
+.cur{font-weight:700;font-size:20px}
+#rate{font:inherit;font-size:20px;width:140px;padding:8px 10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.sat{font-weight:500!important;display:flex;gap:6px;align-items:center}
+.offer{margin:12px 0 0;font-weight:700;font-size:19px}.offer.yes{color:var(--go)}.offer.no{color:var(--warn)}
+.examples{margin:0 0 12px;padding-left:20px;font-size:15px;color:var(--muted)}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:20px 0 0}
+ol.steps>li{counter-increment:s;position:relative;padding-left:44px;margin-bottom:24px}
+ol.steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:700;display:grid;place-items:center}
+.s-t{font-weight:700;margin:0 0 4px}
+figure{margin:10px 0 0}figure img{display:block;max-width:100%;height:auto;border:1px solid var(--line)}
+figcaption{font-size:13px;color:var(--muted);margin-top:6px;font-style:italic}
+.tbl{overflow-x:auto;border:1px solid var(--line);background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{text-align:left;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line);background:var(--bg2);white-space:nowrap}
+th.r{text-align:right}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:700}
+td.sku{font-size:12.5px;color:var(--muted);white-space:nowrap}
+td.pays{color:var(--accent-ink)}
+table.plain{border:1px solid var(--line);background:var(--card);margin:6px 0 14px}
+.tip{font-size:14px;color:var(--muted)}
+.cat{font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--bg2);white-space:nowrap}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0 12px}
+#q{flex:1 1 200px;min-width:0;padding:10px 12px;font:inherit;font-size:15px;color:var(--ink);background:var(--card);border:1px solid var(--line)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font:inherit;font-size:13px;font-weight:600;padding:7px 12px;cursor:pointer;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:99px}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+#count{font-size:12.5px;color:var(--muted);margin:8px 0 0}.empty{text-align:center;color:var(--muted);padding:20px}
+.quiz{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+details{background:var(--card);border:1px solid var(--line)}
+summary{cursor:pointer;padding:14px 16px;font-weight:600}
+.answer{padding:0 16px 14px;color:var(--muted)}.answer p{margin:0;max-width:none}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+footer p{max-width:none}
+code{font-size:.9em;background:var(--bg2);padding:1px 5px}
+@media (max-width:560px){body{font-size:16px}ol.steps>li{padding-left:38px}}
+
+.mast{background:#181F38;color:#fff;text-align:center;padding:26px 16px 30px;border-bottom:6px solid #DEB789}
+.mast .logo{position:relative;width:min(220px,60%);margin:0 auto}
+.mast .logo img{width:100%;height:auto;display:block}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#DEB789;margin:16px 0 4px}
+.mast h1{font:400 clamp(34px,7vw,52px)/1.05 "Limelight",Georgia,serif;margin:0;color:#fff}
+.lead{max-width:56ch;margin:10px auto 0;color:#E6E6EE;font-size:16px}
+.hand{font-family:"Covered By Your Grace",cursive;color:#DEB789;font-size:24px;margin:10px 0 0}
+.times{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 22px;margin:12px 0 0;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+</style></head>
+<body data-hotel="sessions">
+<header class="mast"><div class="logo"><img src="assets/sessions-logo-400.png" alt="Sessions Retreat &amp; Hotel"></div>
+<p class="eyebrow">Retreat &amp; Hotel &middot; Big Bear Lake &middot; Front desk</p><h1>Front Desk Playbook</h1>
+<p class="lead">What to offer, what it costs, and exactly how to ring it up in Cloudbeds.</p>
+<p class="hand">hosting, not selling</p>
+<p class="times"><span>Check-in <span class="ci">4:00 PM</span></span><span>Checkout <span class="co">11:00 AM</span></span></p></header>
+<nav><div class="nav-in"><a href="#checkout">Late Checkout</a><a href="#early">Early Check-In</a><a href="#onemore">One More Night</a><a href="#suggest">Suggest</a><a href="#howto">How to Charge</a><a href="#list">Price List</a><a href="#check">Check Yourself</a></div></nav>
+<main class="wrap">
+
+<section id="checkout">
+  <h2>Late checkout</h2>
+  <p class="sub">Checkout is <b class="co">11:00 AM</b>. Two tiers. Offer it at check-in, not on checkout morning.</p>
+  <div class="tiers">
+    <div class="tier"><span class="t-when">Two extra hours</span><span class="t-name"><span class="nm" data-item="1307599">Late Checkout (1 PM)</span></span>
+      <span class="t-price"><span class="pr" data-item="1307599">$50</span></span><span class="t-note">Room until <b>1:00 PM</b>.</span>
+      <span class="t-sku">Cloudbeds item &middot; SKU 035</span></div>
+    <div class="tier"><span class="t-when">The whole day</span><span class="t-name"><span class="nm" data-item="1307600">Later Checkout (7 PM)</span></span>
+      <span class="t-price"><span class="pr" data-item="1307600">$77</span></span><span class="t-note">Room until <b>7:00 PM</b>.</span>
+      <span class="t-sku">Cloudbeds item &middot; SKU 036</span></div>
+  </div>
+  <div class="note"><span class="lbl">The price is the price</span>
+    <p><span class="pr" data-item="1307599">$50</span> and <span class="pr" data-item="1307600">$77</span> are what the guest pays. No tax is added. Never type a different price into Cloudbeds and never discount it. There is no earlier, cheaper tier any more &mdash; if you see an item that starts with <b>RETIRED</b>, don't use it.</p></div>
+
+  <h3>Before you sell it, check the room</h3>
+  <div class="flow">
+    <div class="q"><p class="q-t">1. Is another guest arriving into that same room that day?</p>
+      <div class="branch"><span class="ans y">NO</span><span>Sell it.</span></div>
+      <div class="branch"><span class="ans n">YES</span><span>Go to question 2.</span></div></div>
+    <div class="arrow">&#8595;</div>
+    <div class="q"><p class="q-t">2. Is another room of the <em>same room type</em> free that night?</p>
+      <div class="branch"><span class="ans y">YES</span><span>Sell it, then move the arriving guest into the free room.</span></div>
+      <div class="branch"><span class="ans n">NO</span><span>Don't sell it. Offer a normal checkout.</span></div></div>
+  </div>
+  <div class="note warn"><span class="lbl">Sold out?</span><p>If the hotel is sold out, the 7 PM checkout needs the GM's OK before you promise it.</p></div>
+  <div class="note"><span class="lbl">Tell housekeeping</span><p>As soon as you sell one, tell housekeeping. A 1 PM room is cleaned later the same day. A 7 PM room is a hold-over and gets cleaned the next day.</p></div>
+
+  <h3>What to say</h3>
+  <div class="say"><p>&ldquo;Checkout is at 11. If you'd like a slow morning, I can keep the room for you until 1 for <span class="pr" data-item="1307599">$50</span> &mdash; or all the way to 7 tonight for <span class="pr" data-item="1307600">$77</span>, so you can get out and shower before the drive home.&rdquo;</p></div>
+</section>
+<section id="early">
+  <h2>Early check-in</h2>
+  <p class="sub">Check-in is <b class="ci">4:00 PM</b>. Earlier than that is <span class="pr" data-item="779588">$50</span>.</p>
+  <table class="plain"><tbody><tr><td><span class="nm" data-item="779588">Early Check In Fee</span></td><td class="num"><span class="pr" data-item="779588">$50</span></td><td class="tip">SKU 033</td></tr></tbody></table>
+  <p>Only sell it once housekeeping confirms the room is clean and ready. Don't promise a time you can't keep.</p>
+  <div class="say"><p>&ldquo;Your room's ready now if you'd like to get in early &mdash; it's <span class="pr" data-item="779588">$50</span>. Want me to add it?&rdquo;</p></div>
+</section>
+<section id="onemore">
+  <h2>One more night</h2>
+  <p class="sub">Offer every guest another night at half what they're paying &mdash; with a $100 minimum.</p>
+  <ul class="rules">
+    <li><b>Price:</b> half their nightly rate, rounded up to the dollar, never below $100.</li>
+    <li><b>Never a Saturday night.</b> Don't offer it.</li>
+    <li><b>Only if their room is free</b> that night (or you can move them to a free room of the same type).</li>
+  </ul>
+  <div class="calc">
+    <label for="rate">Guest's nightly rate</label>
+    <div class="calc-row"><span class="cur">$</span><input id="rate" inputmode="decimal" placeholder="e.g. 180">
+      <label class="sat"><input type="checkbox" id="sat"> Extra night is a Saturday</label></div>
+    <p id="offer" class="offer">Type their rate to see the offer.</p>
+  </div>
+  <p class="tip">Examples:</p><ul class="examples"><li><span class="ex" data-rate="120">$120 a night &rarr; offer $100</span></li><li><span class="ex" data-rate="199">$199 a night &rarr; offer $100</span></li><li><span class="ex" data-rate="201">$201 a night &rarr; offer $101</span></li><li><span class="ex" data-rate="253">$253 a night &rarr; offer $127</span></li></ul>
+  <div class="say"><p>&ldquo;Before you go &mdash; your room is free tomorrow night. If you'd like to stay one more night, I can do it for half what you're paying, [price]. Want me to add it?&rdquo;</p></div>
+  <div class="note warn"><span class="lbl">How to enter it &mdash; important</span>
+    <p><b>Extend the reservation</b> by one night and set that night's rate to the offer price. Then type <b>ONE MORE NIGHT</b> in the reservation notes.</p>
+    <p><b>Never</b> ring it up as a product or a custom charge. That charges the wrong tax and leaves the room open for an online booking on top of your guest.</p></div>
+</section>
+<section id="suggest">
+  <h2>Suggest what fits</h2>
+  <p class="sub">Ask first, listen, then suggest one or two things that fit what they told you. Say the price once, then let it go &mdash; a &ldquo;no&rdquo; is fine.</p>
+  <div class="tbl"><table class="sug"><thead><tr><th>They mention&hellip;</th><th>Suggest (Cloudbeds item &amp; price)</th></tr></thead><tbody><tr><td><b>Long drive home</b></td><td><span class="nm" data-item="1307599">Late Checkout (1 PM)</span> &middot; <span class="pr" data-item="1307599">$50</span><br><span class="nm" data-item="1307600">Later Checkout (7 PM)</span> &middot; <span class="pr" data-item="1307600">$77</span><br><span class=tip>Ask when they head home.</span></td></tr><tr><td><b>Got here early</b></td><td><span class="nm" data-item="779588">Early Check In Fee</span> &middot; <span class="pr" data-item="779588">$50</span><br><span class=tip>Only once the room is ready.</span></td></tr><tr><td><b>Celebrating</b></td><td><span class="nm" data-item="1236521">Romance Package</span> &middot; <span class="pr" data-item="1236521">$50</span><br><span class="nm" data-item="1236520">Romance Package (With Alcohol)</span> &middot; <span class="pr" data-item="1236520">$70</span><br><span class=tip>Rose petals, chocolates and candles set up in the room.</span></td></tr><tr><td><b>Getting outside</b></td><td><span class="nm" data-item="1161441">E-Bike Rental</span> &middot; <span class="pr" data-item="1161441">$75</span><br><span class=tip>Full-day e-bike.</span></td></tr><tr><td><b>Needs a reset</b></td><td><span class="nm" data-item="1300888">Cold Plunge (guests + locals)</span> &middot; <span class="pr" data-item="1300888">$20</span><br><span class="nm" data-item="1181288">Wellness Package (1 day pass)</span> &middot; <span class="pr" data-item="1181288">$75</span><br><span class=tip>The desk fills and drains the plunge &mdash; book a time.</span></td></tr><tr><td><b>Wood-fireplace chalet</b></td><td><span class="nm" data-item="997837">Fire Log</span> &middot; <span class="pr" data-item="997837">$7</span><br><span class="nm" data-item="1007692">Duralog</span> &middot; <span class="pr" data-item="1007692">$8</span><br><span class=tip>The Duralog lights instantly.</span></td></tr><tr><td><b>Cooking in</b></td><td><span class="nm" data-item="1255106">Vaquero Seasoning</span> &middot; <span class="pr" data-item="1255106">$15</span><br><span class="nm" data-item="1255107">Vaquero Chili Oil</span> &middot; <span class="pr" data-item="1255107">$20</span></td></tr><tr><td><b>Slow, cozy weekend</b></td><td><span class="nm" data-item="1249651">Scent Diffuser</span> &middot; <span class="pr" data-item="1249651">$40</span><br><span class="nm" data-item="1255104">Sessions Candle</span> &middot; <span class="pr" data-item="1255104">$25</span></td></tr><tr><td><b>Kids along</b></td><td><span class="nm" data-item="1175971">Coloring Book</span> &middot; <span class="pr" data-item="1175971">$16</span><br><span class="nm" data-item="986043">puzzle</span> &middot; <span class="pr" data-item="986043">$32</span><br><span class="nm" data-item="1015525">cards</span> &middot; <span class="pr" data-item="1015525">$14</span></td></tr><tr><td><b>Bringing the dog</b></td><td><span class="nm" data-item="757999">Pet Fee</span> &middot; <span class="pr" data-item="757999">$50</span><br><span class=tip>Required for every pet, per stay &mdash; not a sale. Lodge rooms are pet-free. Use the dog's name.</span></td></tr><tr><td><b>Take a little Sessions home</b></td><td><span class="nm" data-item="1175983">Sessions Hoodie</span> &middot; <span class="pr" data-item="1175983">$45</span><br><span class="nm" data-item="1011517">Sess T-shirt</span> &middot; <span class="pr" data-item="1011517">$25</span><br><span class="nm" data-item="993866">Camp mug</span> &middot; <span class="pr" data-item="993866">$18</span><br><span class="nm" data-item="1255104">Sessions Candle</span> &middot; <span class="pr" data-item="1255104">$25</span><br><span class=tip>At checkout.</span></td></tr></tbody></table></div>
+  <div class="note warn"><span class="lbl">Not in Cloudbeds &mdash; don't quote a price</span><p>Don't sell an item that isn't in Cloudbeds, and don't make up a price. Sessions has no food, drink or beer items in Cloudbeds, and no s'mores kit or firewood bundle item. Ask your manager before selling any of them.</p></div>
+  <h3>At checkout</h3>
+  <div class="say"><p>&ldquo;How was your stay? Next time, book direct on our website or by phone &mdash; it's 10% off.&rdquo;</p></div>
+</section>
+<section id="howto">
+  <h2>How to charge it in Cloudbeds</h2>
+  <p class="sub">The same five steps for everything on this page.</p>
+  <div class="note warn"><span class="lbl">First time only</span><p>If the folio shows a green <b>ADD/ADJUST CHARGE</b> button instead of a blue <b>+ Add</b>, click <b>Switch to the new folio</b> in the blue banner first.</p></div>
+  <ol class="steps">
+    <li><p class="s-t">Open the reservation, click <b>Folio</b></p></li>
+    <li><p class="s-t">Click <b>+ Add</b>, then <b>Product</b></p><p>Not Room Revenue, not Adjustment. <b>Product</b> pulls from our item list.</p>
+      <figure><img src="assets/cloudbeds-step1.jpeg" alt="Folio + Add menu showing the Product tile" loading="lazy"><figcaption>Blue + Add, then the Product tile.</figcaption></figure></li>
+    <li><p class="s-t">Pick the product category</p><p>Use <b>Fee</b> for late checkout, early check-in, pet fee and cold plunge. Use <b>Additionals</b> for the Romance Package, e-bike and wellness pass. Shop items have no category &mdash; just search the name.</p>
+      <figure><img src="assets/cloudbeds-step2.jpeg" alt="Blank Add Item panel" loading="lazy"><figcaption>The Add Item panel.</figcaption></figure></li>
+    <li><p class="s-t">Choose the product &mdash; the price fills itself</p><p>Start typing the name (for example <code>checkout</code>). <b>Never type or change the price.</b> If the price doesn't fill in, you picked the wrong item. More than one? Change <b>Quantity</b>.</p>
+      <figure><img src="assets/cloudbeds-step3.jpeg" alt="Add Item panel filled in: category Fee, Late Checkout (1 PM), price 50.00" loading="lazy"><figcaption>Filled in right: the price appeared on its own.</figcaption></figure></li>
+    <li><p class="s-t">Payment method, then <b>Add</b></p><p>Taking a card now? Choose the card. Putting it on the room? Leave <b>Do not collect payment</b>.</p></li>
+  </ol>
+  <div class="note"><span class="lbl">Why it matters</span><p>Every charge is credited to whoever is logged in. A custom charge, or ringing something through the wrong item, means the sale doesn't count as yours and our numbers go wrong.</p></div>
+</section>
+<section id="list">
+  <h2>Price list</h2>
+  <p class="sub">Everything active in Cloudbeds. Search mid-shift. Cloudbeds adds any tax set on the item.</p>
+  <div class="tools"><input id="q" type="search" placeholder="Search an item or SKU&hellip;" aria-label="Search items"><div class="chips" id="chips"><button class="chip" data-cat="all" aria-pressed="true">All</button><button class="chip" data-cat="Guest extras" aria-pressed="false">Guest extras</button><button class="chip" data-cat="Shop" aria-pressed="false">Shop</button><button class="chip" data-cat="House charges" aria-pressed="false">House charges</button><button class="chip" data-cat="Events (manager only)" aria-pressed="false">Events (manager only)</button></div></div>
+  <div class="tbl"><table><thead><tr><th>SKU</th><th>Item</th><th>Category</th><th class="r">Price</th></tr></thead><tbody id="rows"></tbody></table></div>
+  <p id="count"></p>
+</section>
+<script>
+var ITEMS=[{"s": "001", "n": "Sheets", "c": "House charges", "p": 15.0}, {"s": "002", "n": "Pillow Case", "c": "House charges", "p": 10.0}, {"s": "003", "n": "Towel - medium", "c": "House charges", "p": 12.0}, {"s": "004", "n": "Bath Mat", "c": "House charges", "p": 15.0}, {"s": "005", "n": "TV", "c": "House charges", "p": 550.0}, {"s": "006", "n": "Microwave", "c": "House charges", "p": 100.0}, {"s": "007", "n": "Coffe Maker", "c": "House charges", "p": 65.0}, {"s": "008", "n": "Decor (art)", "c": "House charges", "p": 75.0}, {"s": "009", "n": "Chair", "c": "House charges", "p": 450.0}, {"s": "010", "n": "Mattress - King", "c": "House charges", "p": 500.0}, {"s": "011", "n": "Towel Rack", "c": "House charges", "p": 30.0}, {"s": "012", "n": "Toilet Paper Rack", "c": "House charges", "p": 15.0}, {"s": "013", "n": "Pillow", "c": "House charges", "p": 30.0}, {"s": "014", "n": "Towel - Large", "c": "House charges", "p": 15.0}, {"s": "015", "n": "Towel - Small", "c": "House charges", "p": 6.0}, {"s": "016", "n": "Shower Curtain", "c": "House charges", "p": 20.0}, {"s": "017", "n": "Refrigerator - Small", "c": "House charges", "p": 285.0}, {"s": "018", "n": "Refrigerator - Large", "c": "House charges", "p": 400.0}, {"s": "019", "n": "Lamp", "c": "House charges", "p": 100.0}, {"s": "020", "n": "Mattress - Queen", "c": "House charges", "p": 350.0}, {"s": "021", "n": "Mattress - Cleaning Fee", "c": "House charges", "p": 100.0}, {"s": "022", "n": "Mattress - Full", "c": "House charges", "p": 250.0}, {"s": "023", "n": "Glass Cups", "c": "House charges", "p": 5.0}, {"s": "024", "n": "Wine Glass", "c": "House charges", "p": 5.0}, {"s": "025", "n": "Trash Can", "c": "House charges", "p": 5.0}, {"s": "026", "n": "Luggage Rack", "c": "House charges", "p": 30.0}, {"s": "027", "n": "Mattress Cover", "c": "House charges", "p": 20.0}, {"s": "028", "n": "Smoking/FIre Fee", "c": "House charges", "p": 250.0}, {"s": "029", "n": "Pet Fee", "c": "Guest extras", "p": 50.0}, {"s": "031", "n": "Lost Key", "c": "House charges", "p": 25.0}, {"s": "033", "n": "Early Check In Fee", "c": "Guest extras", "p": 50.0}, {"s": "501195", "n": "Event Deposit", "c": "Events (manager only)", "p": 1000.0}, {"s": "923069", "n": "Bar Package", "c": "Events (manager only)", "p": 3300.0}, {"s": "663372", "n": "Event Space Payment", "c": "Events (manager only)", "p": 500.0}, {"s": "986489", "n": "Side Lamp", "c": "House charges", "p": 100.0}, {"s": "296669", "n": "Cleaning Fee", "c": "House charges", "p": 348.0}, {"s": "062432", "n": "yiftee activation", "c": "Events (manager only)", "p": 1.0}, {"s": "619626", "n": "puzzle", "c": "Guest extras", "p": 32.0}, {"s": "175820", "n": "leave it hat", "c": "Shop", "p": 36.0}, {"s": "914728", "n": "Sess Hoodie", "c": "House charges", "p": 40.0}, {"s": "755706", "n": "Camp mug", "c": "Guest extras", "p": 18.0}, {"s": "760262", "n": "Grateful dead hat", "c": "Shop", "p": 50.0}, {"s": "276630", "n": "Beanie Geyser", "c": "Shop", "p": 40.0}, {"s": "924030", "n": "Fire Log", "c": "Guest extras", "p": 7.0}, {"s": "510921", "n": "Sketchers Event Fee", "c": "Events (manager only)", "p": 12000.0}, {"s": "090231", "n": "Parks Crop", "c": "Shop", "p": 48.0}, {"s": "764590", "n": "Parks Crew", "c": "Shop", "p": 65.0}, {"s": "974607", "n": "Sherpa", "c": "Shop", "p": 140.0}, {"s": "025911", "n": "Duralog", "c": "Guest extras", "p": 8.0}, {"s": "668465", "n": "Sess T-shirt", "c": "Guest extras", "p": 25.0}, {"s": "165208", "n": "Nova Bar Package", "c": "Events (manager only)", "p": 3840.0}, {"s": "554460", "n": "cards", "c": "Guest extras", "p": 14.0}, {"s": "769227", "n": "Parks Brown Hoodie", "c": "Shop", "p": 72.0}, {"s": "698489", "n": "Parks (Nature Rest) Tshirt", "c": "Shop", "p": 40.0}, {"s": "935939", "n": "Rainbow hat", "c": "Shop", "p": 38.0}, {"s": "389075", "n": "Door", "c": "House charges", "p": 200.0}, {"s": "597251", "n": "E-Bike Rental", "c": "Guest extras", "p": 75.0}, {"s": "706310", "n": "Hoodie", "c": "House charges", "p": 45.0}, {"s": "966249", "n": "Sweat Pants", "c": "Shop", "p": 30.0}, {"s": "849897", "n": "Parks Long Sleeve", "c": "Shop", "p": 48.0}, {"s": "004024", "n": "Parks Sleeveless", "c": "Shop", "p": 38.0}, {"s": "550234", "n": "Coloring Book", "c": "Guest extras", "p": 16.0}, {"s": "243950", "n": "Sessions Hoodie", "c": "Guest extras", "p": 45.0}, {"s": "984922", "n": "Wellness Package (1 day pass)", "c": "Guest extras", "p": 75.0}, {"s": "128135", "n": "A LOST CAUSE SUNGLASSES", "c": "Shop", "p": 20.0}, {"s": "537958", "n": "Table", "c": "House charges", "p": 0.0}, {"s": "030340", "n": "Romance Package (With Alcohol)", "c": "Guest extras", "p": 70.0}, {"s": "254900", "n": "Romance Package", "c": "Guest extras", "p": 50.0}, {"s": "198017", "n": "Scent Diffuser", "c": "Guest extras", "p": 40.0}, {"s": "598073", "n": "Sessions Candle", "c": "Guest extras", "p": 25.0}, {"s": "810517", "n": "Vaquero Seasoning", "c": "Guest extras", "p": 15.0}, {"s": "274522", "n": "Vaquero Chili Oil", "c": "Guest extras", "p": 20.0}, {"s": "784180", "n": "parking fee", "c": "House charges", "p": 25.0}, {"s": "761514", "n": "Shipping Fee", "c": "Shop", "p": 0.0}, {"s": "102326", "n": "Event Ticket", "c": "Events (manager only)", "p": 2000.0}, {"s": "709846", "n": "Cold Plunge (guests + locals)", "c": "Guest extras", "p": 20.0}, {"s": "727455", "n": "Cold Plunge (Practitioner/Zeff Grown)", "c": "Guest extras", "p": 30.0}, {"s": "035", "n": "Late Checkout (1 PM)", "c": "Guest extras", "p": 50.0}, {"s": "036", "n": "Later Checkout (7 PM)", "c": "Guest extras", "p": 77.0}];
+(function(){
+  var rows=document.getElementById('rows'),count=document.getElementById('count'),q=document.getElementById('q'),cat='all';
+  function m(n){return '$'+n.toFixed(2);}
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function render(){
+    var t=q.value.trim().toLowerCase();
+    var L=ITEMS.filter(function(i){return (cat==='all'||i.c===cat)&&(!t||(i.n+' '+i.s+' '+i.c).toLowerCase().indexOf(t)!==-1;});
+    rows.innerHTML=L.length?L.map(function(i){return '<tr><td class="sku">'+esc(i.s)+'</td><td>'+esc(i.n)+'</td><td><span class="cat">'+esc(i.c)+'</span></td><td class="num">'+m(i.p)+'</td>'+(false?'<td class="num pays">'+m(i.g)+'</td>':'')+'</tr>';}).join(''):'<tr><td colspan="5" class="empty">Nothing matches. Check the spelling or clear the filter.</td></tr>';
+    count.textContent='Showing '+L.length+' of '+ITEMS.length+' items';
+  }
+  q.addEventListener('input',render);
+  document.getElementById('chips').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;cat=b.dataset.cat;
+    Array.prototype.forEach.call(this.querySelectorAll('.chip'),function(c){c.setAttribute('aria-pressed',String(c===b));});render();});
+  render();
+})();
+</script><section id="check"><h2>Check yourself</h2><p class="sub">Answer before you open each one.</p><div class="quiz"><details><summary>A guest checks in Friday. Someone arrives into that exact room Saturday. Can you sell the 7 PM checkout?</summary><div class="answer"><p>Only if another room of the same room type is free Saturday night, so the arriving guest can be moved. Otherwise no.</p></div></details><details><summary>A guest asks for late checkout "just until noon, for less". What do you say?</summary><div class="answer"><p>There is no noon tier. The options are 1 PM for $50 or 7 PM for $77. Never type a lower price into Cloudbeds.</p></div></details><details><summary>How much tax goes on the 7 PM checkout?</summary><div class="answer"><p>None. $77 is the full price.</p></div></details><details><summary>A guest wants One More Night for a Saturday. What is the price?</summary><div class="answer"><p>You don't offer it. One More Night is never a Saturday night.</p></div></details><details><summary>How do you enter One More Night?</summary><div class="answer"><p>Extend the reservation by one night, set that night's rate, and type ONE MORE NIGHT in the notes. Never as a product.</p></div></details><details><summary>A guest wants a beer bucket. What do you ring up?</summary><div class="answer"><p>There is no beer item in Cloudbeds at Sessions. Ask your manager &mdash; never invent a custom charge.</p></div></details><details><summary>The price field is blank after you picked a product. What went wrong?</summary><div class="answer"><p>You picked the wrong item or didn't select it from the list. Pick again. Never type a price in.</p></div></details></div></section>
+<footer><p>Every price on this page was read from Cloudbeds on <b>2026-10-01 21:09</b> (Pacific). If Cloudbeds shows something different, Cloudbeds is right &mdash; tell your manager so this page gets rebuilt.</p></footer>
+</main>
+
+<script>
+(function(){
+  var FLOOR=100, PCT=50, BLOCK="Saturday";
+  var r=document.getElementById('rate'), s=document.getElementById('sat'), o=document.getElementById('offer');
+  function f(){
+    var v=parseFloat((r.value||'').replace(/[^0-9.]/g,''));
+    if(s.checked){o.textContent='Don\u2019t offer it \u2014 never a '+BLOCK+' night.';o.className='offer no';return;}
+    if(!v){o.textContent='Type their rate to see the offer.';o.className='offer';return;}
+    var p=Math.max(FLOOR,Math.ceil(v*PCT/100));
+    o.textContent='Offer: $'+p+' for the extra night'+(p===FLOOR?' (the minimum)':'');o.className='offer yes';
+  }
+  r.addEventListener('input',f); s.addEventListener('change',f);
+})();
+</script>
+<script>
+(function(){var links=[].slice.call(document.querySelectorAll('nav a')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIntersecting)return;var i=secs.indexOf(en.target);links.forEach(function(a,j){a.classList.toggle('on',i===j);});});},{rootMargin:'-60px 0px -70% 0px'});
+secs.forEach(function(s){if(s)io.observe(s);});})();
+</script>
+</body></html>
